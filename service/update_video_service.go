@@ -7,7 +7,9 @@ import (
 
 // UpdateVideoService 更新视频的服务
 type UpdateVideoService struct {
-	Info string `form:"Info" json:"Info" binding:"required,max=80"`
+	Info string `form:"info" json:"info" binding:"required,max=80"`
+	Poster	string `form:"poster" json:"poster"`
+
 }
 
 // Update 更新视频函数

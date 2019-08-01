@@ -4,11 +4,13 @@ import (
 	"go-crud/model"
 )
 
-// Video 用户序列化器
+// Video 视频序列化器
 type Video struct {
 	ID        uint   `json:"id"`
 	Title     string `json:"title"`
 	Info      string `json:"info"`
+	URL			string `json:"url"`
+	Poster	string ` json:"poster"`
 	CreatedAt int64  `json:"created_at"`
 }
 
@@ -18,6 +20,8 @@ func BuildVideo(item model.Video) Video {
 		ID:        item.ID,
 		Title:     item.Title,
 		Info:      item.Info,
+		URL:		item.URL,
+		Poster:   item.Poster,
 		CreatedAt: item.CreatedAt.Unix(),
 	}
 }

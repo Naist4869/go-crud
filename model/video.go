@@ -7,4 +7,6 @@ type Video struct {
 	gorm.Model
 	Title string
 	Info  string
+	URL string
+	Poster string
 }
