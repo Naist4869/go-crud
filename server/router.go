@@ -40,6 +40,8 @@ func NewRouter() *gin.Engine {
 		v1.PATCH("video/:id", api.UpdateVideo)
 		//请求Token
 		v1.POST("upload/token", api.UploadToken)
+		//请求Video
+		v1.POST("upload/video", api.UploadVideo)
 
 		authed := r.Group("/")
 

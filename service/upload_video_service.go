@@ -3,18 +3,17 @@ package service
 import (
 	"go-crud/serializer"
 	"os"
-
 	"github.com/aliyun/aliyun-oss-go-sdk/oss"
 	// "github.com/google/uuid"
 )
 
-// UploadTokenService 获得上传oss token的服务
-type UploadTokenService struct {
+// UploadVideoService 获得上传oss token的服务
+type UploadVideoService struct {
 	FileName string `form:"filename"  json:"filename" binding:"required" `
 }
 
 // Token 获取Token函数
-func (service *UploadTokenService) Token() serializer.Response {
+func (service *UploadVideoService) POST() serializer.Response {
 
 	client, err := oss.New(os.Getenv("OSS_END_POINT"), os.Getenv("OSS_ACCESS_KEY_ID"), os.Getenv("OSS_ACCESS_KEY_SECRET"))
 	if err != nil {
@@ -35,12 +34,12 @@ func (service *UploadTokenService) Token() serializer.Response {
 	}
 		//带可选参数的签名直传
 	options := []oss.Option{
-		oss.ContentType("image/png"),
+		oss.ContentType("video/mp4"),
 		
 	}
 
-	// key := "upload/poster/" + uuid.Must(uuid.NewRandom()).String() + ".jpeg"
-	key := "upload/poster/" + service.FileName
+	// key := "upload/video/" + uuid.Must(uuid.NewRandom()).String() + ".jpeg"
+	key := "upload/video/" + service.FileName
 
 	// 	签名直传
 	signedPutURL, err := bucket.SignURL(key, oss.HTTPPut, 600,options...)
@@ -62,7 +61,7 @@ func (service *UploadTokenService) Token() serializer.Response {
 
 
 	// 查看图片
-	signedGetURL, err := bucket.SignURL(key, oss.HTTPGet, 600,)
+	signedGetURL, err := bucket.SignURL(key, oss.HTTPGet, 600)
 	if err != nil {
 		return serializer.Response{
 			Status: 40004,
