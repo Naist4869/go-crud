@@ -12,7 +12,7 @@ type UploadVideoService struct {
 	FileName string `form:"filename"  json:"filename" binding:"required" `
 }
 
-// Token 获取Token函数
+// POST POST视频地址
 func (service *UploadVideoService) POST() serializer.Response {
 
 	client, err := oss.New(os.Getenv("OSS_END_POINT"), os.Getenv("OSS_ACCESS_KEY_ID"), os.Getenv("OSS_ACCESS_KEY_SECRET"))
@@ -60,20 +60,11 @@ func (service *UploadVideoService) POST() serializer.Response {
 	// }
 
 
-	// 查看图片
-	signedGetURL, err := bucket.SignURL(key, oss.HTTPGet, 600)
-	if err != nil {
-		return serializer.Response{
-			Status: 40004,
-			Msg:    "OSS配置错误",
-			Error:  err.Error(),
-		}
-	}
 	return serializer.Response{
 		Data: map[string]string{
 			"key": key,
 			"put": signedPutURL,
-			"get": signedGetURL,
+			
 		},
 	}
 

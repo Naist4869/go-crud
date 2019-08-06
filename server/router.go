@@ -19,7 +19,7 @@ func NewRouter() *gin.Engine {
 
 	// 路由
 	v1 := r.Group("/api/v1")
-	
+
 	{
 		v1.POST("ping", api.Ping)
 
@@ -42,6 +42,8 @@ func NewRouter() *gin.Engine {
 		v1.POST("upload/token", api.UploadToken)
 		//请求Video
 		v1.POST("upload/video", api.UploadVideo)
+		//每日排行榜
+		v1.GET("rank/daily", api.DailyRank)
 
 		authed := r.Group("/")
 

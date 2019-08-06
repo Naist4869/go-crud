@@ -9,8 +9,9 @@ type Video struct {
 	ID        uint   `json:"id"`
 	Title     string `json:"title"`
 	Info      string `json:"info"`
-	Video       string `json:"video"`
+	Video     string `json:"video"`
 	Poster    string ` json:"poster"`
+	View      uint64 `json:"view"`
 	CreatedAt int64  `json:"created_at"`
 }
 
@@ -20,8 +21,9 @@ func BuildVideo(item model.Video) Video {
 		ID:        item.ID,
 		Title:     item.Title,
 		Info:      item.Info,
-		Video:       item.VideoURL(),
+		Video:     item.VideoURL(),
 		Poster:    item.PosterURL(),
+		View:      item.View(),
 		CreatedAt: item.CreatedAt.Unix(),
 	}
 }
