@@ -1,14 +1,18 @@
-# Golang Fast CRUD
+﻿# Golang Fast CRUD
 
 https://github.com/bydmm/go-crud
 
-## 视频实况教程
+## 视频实况
 
-[让我们写个G站吧！Golang全栈编程实况](https://space.bilibili.com/10/channel/detail?cid=78794)
+[Golang全栈编程实况](www.i4k.tv)
 
 ## 使用Go CRUD开发的项目实例
 
-https://github.com/bydmm/giligili
+[爱4K](www.i4k.tv) www.i4k.tv
+
+前端Vue项目地址：https://github.com/Naist4869/i4k
+后端Golang项目地址：https://github.com/Naist4869/go-crud
+
 
 ## 目的
 
